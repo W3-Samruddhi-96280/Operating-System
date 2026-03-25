@@ -1,0 +1,54 @@
+14_Linux_assignment_XIV 
+-------------------------------------------------------------------------------------------------------------------------- 
+ 
+# Create new directory with the name 18oct and create three directories there. (dir1, dir2, 
+dir3), also create four .txt files (1.txt, 2.txt, 3.txt, 4.txt) 
+ 
+ amruddhi@samruddhi-VirtualBox:/home$ sudo mkdir 18oct
+samruddhi@samruddhi-VirtualBox:/home$ cd 18oct
+samruddhi@samruddhi-VirtualBox:/home/18oct$ mkdir dir1 dir2 dir3
+mkdir: cannot create directory ‘dir1’: Permission denied
+mkdir: cannot create directory ‘dir2’: Permission denied
+mkdir: cannot create directory ‘dir3’: Permission denied
+samruddhi@samruddhi-VirtualBox:/home/18oct$ sudo mkdir dir1 dir2 dir3
+samruddhi@samruddhi-VirtualBox:/home/18oct$ sudo touch 1.txt 2.txt 3.txt 4.txt
+
+
+
+
+samruddhi@samruddhi-VirtualBox:/home/18oct$ cd .
+-------------------------------------------------------
+Using find command: 
+ 
+1. List only directories from 18oct. 
+samruddhi@samruddhi-VirtualBox:/home$ sudo ls -d 18oct/*/
+18oct/dir1/  18oct/dir2/  18oct/dir3/
+
+samruddhi@samruddhi-VirtualBox:/home$ sudo find  18oct -type d
+18oct
+18oct/dir2
+18oct/dir3
+18oct/dir1
+----------------------------------------------------------
+2. List only files. 
+
+
+samruddhi@samruddhi-VirtualBox:/home$ sudo find 18oct -type f
+18oct/1.txt
+18oct/2.txt
+18oct/3.txt
+18oct/4.txt
+----------------------------------------------------------------------
+
+
+3. Make 2.txt executable, now search the files having permission as rwxr-xr-x (755) from 
+18oct. 
+samruddhi@samruddhi-VirtualBox:/home$ sudo chmod 755 18oct/2.txt
+----------------------------------------------------
+4. Search the file 4.txt. 
+ amruddhi@samruddhi-VirtualBox:/home$ sudo find 18oct -name "4.txt"
+18oct/4.txt
+samruddhi@samruddhi-VirtualBox:/home$ 
+
+
+-------------------------------------------------------------------------------------------------------------------------- 
