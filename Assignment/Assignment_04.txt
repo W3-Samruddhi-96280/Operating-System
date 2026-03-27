@@ -1,0 +1,115 @@
+samruddhi@samruddhi-VirtualBox:~$ touch data.txt
+samruddhi@samruddhi-VirtualBox:~$ cat>data.txt
+Linux is open source.
+In Linus everyting is file.
+file have permissions.
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ uname
+Linux
+samruddhi@samruddhi-VirtualBox:~$ cat data.txt
+Linux is open source.
+In Linus everyting is file.
+file have permissions.
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ man wc
+samruddhi@samruddhi-VirtualBox:~$ wc -w -m -l data.txt
+  6  25 145 data.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~$ uname
+Linux
+samruddhi@samruddhi-VirtualBox:~$ cat data.txt
+Linux is open source.
+In Linus everyting is file.
+file have permissions.
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ man wc
+samruddhi@samruddhi-VirtualBox:~$ wc -w -m -l data.txt
+  6  25 145 data.txt
+samruddhi@samruddhi-VirtualBox:~$ ^C
+samruddhi@samruddhi-VirtualBox:~$ 
+samruddhi@samruddhi-VirtualBox:~$ 
+samruddhi@samruddhi-VirtualBox:~$ man grep
+samruddhi@samruddhi-VirtualBox:~$ grep -w data.txt
+samruddhi@samruddhi-VirtualBox:~$ grep -w "files"
+samruddhi@samruddhi-VirtualBox:~$ grep -w "file"
+samruddhi@samruddhi-VirtualBox:~$ grep -w "have"
+samruddhi@samruddhi-VirtualBox:~$ grep -w "have" data.txt
+file have permissions.
+files have inode no.
+file have size.
+samruddhi@samruddhi-VirtualBox:~$ grep -w "files" data.txt
+files have inode no.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ grep -w "file" data.txt
+In Linus everyting is file.
+file have permissions.
+file have size.
+samruddhi@samruddhi-VirtualBox:~$ grep -v "file" data.txt
+Linux is open source.
+samruddhi@samruddhi-VirtualBox:~$ grep "^f" data.txt
+file have permissions.
+files have inode no.
+file have size.
+samruddhi@samruddhi-VirtualBox:~$ grep ".$" data.txt
+Linux is open source.
+In Linus everyting is file.
+file have permissions.
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ head -2 dat.txt
+head: cannot open 'dat.txt' for reading: No such file or directory
+samruddhi@samruddhi-VirtualBox:~$ head -2 data.txt
+Linux is open source.
+In Linus everyting is file.
+samruddhi@samruddhi-VirtualBox:~$ cat data.txt
+Linux is open source.
+In Linus everyting is file.
+file have permissions.
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ tail -3 data.txt
+files have inode no.
+file have size.
+there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ head -3 -4 data.txt |tail -5
+head: invalid trailing option -- 4
+Try 'head --help' for more information.
+samruddhi@samruddhi-VirtualBox:~$ head -n -5 data.txt |tail -n -3
+Linux is open source.
+samruddhi@samruddhi-VirtualBox:~$ tail -n+3 data.txt | head -n 3
+file have permissions.
+files have inode no.
+file have size.
+samruddhi@samruddhi-VirtualBox:~$ cat -n data.txt
+     1	Linux is open source.
+     2	In Linus everyting is file.
+     3	file have permissions.
+   
+     4	files have inode no.
+     5	file have size.
+     6	there are serveral types of files.
+samruddhi@samruddhi-VirtualBox:~$ 
+
