@@ -1,0 +1,708 @@
+#!/bin/bash
+
+#----------------------------------------
+#    Login name and Home Directory
+#---------------------------------------
+
+echo -n "Login Name : "
+whoami
+
+echo -n "Home Directory :"
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q1.sh
+Login Name : samruddhi
+Home Directory :./Q1.sh: line 11: /home/samruddhi: Is a directory
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+-------------------------------------------------------------------------------------------
+
+read choice
+
+case $choice in
+        1)
+                echo "Date is "
+                date
+                ;;
+
+        2)
+                echo "Cal is "
+                cal
+                ;;
+        3)
+                echo "Ls : "
+                ls
+                ;;
+        4)
+                echo "pwd : "
+                pwd
+                ;;
+        5)
+                echo "Exit :"
+                exit
+                ;;
+        *)
+                echo `Invalid`
+                ;;
+esac
+
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q02.sh
+1. Date
+2.Cal
+3.Ls
+4.Pwd
+5.Exit
+Enter choice1
+Date is 
+Sat Mar 28 02:02:46 AM EDT 2026
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q02.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q02.sh
+1. Date
+2.Cal
+3.Ls
+4.Pwd
+5.Exit
+Enter choice3
+Ls : 
+ 0.sh		   c.txt        Q11.sh	 Q15.sh   Q3.sh   Q8.sh       'Untitled Document 1'
+ Assignment08.sh  'gfhghjkl;'   Q12.sh	 Q16.sh   Q5.sh   Q9.sh
+ a.txt		   Q02.sh       Q13.sh	 Q1.sh	  Q6.sh   script4.sh
+ b.txt		   Q10.sh       Q14.sh	 Q2.sh	  Q7.sh   temp
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#----------------------------------------
+#    Accept the name from the user and check name is file directory  - size [dir -content]
+#---------------------------------------
+
+echo -n "Enter Name : "
+read name
+
+if [ -e $name ]
+then
+        echo " Path exists"
+        if [ -f $name ]
+        then
+                echo "Regular File"
+                stat $name
+        elif [ -d $name ]
+        then
+                echo "Directory File"
+                echo "Content of Directory :cat "
+                stat  $name
+        else
+                echo "someting else"
+        fi
+else
+        echo "Path doesnt exist"
+fi
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q3.sh
+Enter Name : a.txt
+ Path exists
+Regular File
+  File: a.txt
+  Size: 34        	Blocks: 8          IO Block: 4096   regular file
+Device: 803h/2051d	Inode: 1204699     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/samruddhi)   Gid: ( 1000/samruddhi)
+Access: 2026-03-28 01:28:05.342260282 -0400
+Modify: 2026-03-28 01:27:53.459956897 -0400
+Change: 2026-03-28 01:27:53.459956897 -0400
+ Birth: 2026-03-26 06:11:56.325004231 -0400
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+#----------------------------------------
+#  Given no prime or not
+
+#---------------------------------------
+
+echo "Enter number : "
+read num
+
+flag=0
+
+for (( i=2; i<=n/2; i++ ))
+do
+        if(( n % i == 0 ))
+        then
+                flag=1
+                break
+        fi
+done
+if(( n<=1 ))
+then
+        echo "Prime"
+else
+        echo "Not Prime "
+fi
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q4.sh
+Enter number : 
+10
+Prime
+samruddhi@
+
+
+
+--------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+#----------------------------------------
+#  Greatest of 3 nos    
+#---------------------------------------
+
+
+echo -n "Enter three nos : "
+read num1 num2 num3
+
+max=0
+
+if [ $num1 -eq $num2 ]
+then
+        echo "Num and num2 are equal "
+        max=$num1
+elif [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+        echo "num1 is greater "
+        max=$num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+        echo "Num2 is greater"
+        max=$num2
+else
+        echo "num3 is greater"
+        max=$num3
+fi
+echo "Maximum value =$max"
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q5.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q5.sh
+Enter three nos : 67 23 11
+num1 is greater 
+Maximum value =67
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+
+#!/bin/bash
+
+#----------------------------------------
+#  Leap Year or not   
+#---------------------------------------
+
+
+echo -n "Enter Year : "
+read year
+
+if [ $(expr $year % 4) -eq 0 ]
+then
+        echo "$year Lear Year"
+elif [ $(expr $year % 40)  -eq 0 ]
+then
+        echo "$year Leap Year"
+else
+        echo "$num Not a leap year"
+fi
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q6.sh
+Enter Year : 2020
+2020 Lear Year
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+
+-------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#----------------------------------------
+#    Number is positive or negative
+#-------------------------------------- 
+
+
+echo -n "Enter Number : "
+read num
+
+if [ $num -gt 0 ]
+then
+        echo "$num is Positive"
+elif [ $num -lt 0 ]
+then
+        echo "$num is negative"      
+fi
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q7.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q7.sh
+Enter Number : -4
+-4 is negative
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+#!/bin/bash
+
+#----------------------------------------
+#  Table of given no   
+#---------------------------------------
+
+echo -n "Enter no : "
+read num
+
+for i in $(seq 10)
+do
+        echo $(expr $i \* $num)
+done
+~                                                                                                        
+~       
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q8.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q8.sh
+Enter no : 223
+223
+446
+669
+892
+1115
+1338
+1561
+1784
+2007
+2230
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+
+--------------------------------------------------------------------------------------------- 
+
+#!/bin/bash
+
+#----------------------------------------
+#   Factorial of Given no
+#---------------------------------------
+
+
+
+factorial ()
+{
+ fact=1
+ for (( i=1 ; i <= $1 ; i++ ))
+ do
+         fact=$((fact * i))
+done
+echo $fact
+
+}
+
+fact=$(factorial 8)
+echo "8! = $fact"
+~                                                                                                        
+~                                                                                                        
+~                      
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q9.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q9.sh
+8! = 40320
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+-----------------------------------------------------------------------------------
+
+#!/bin/bash
+
+#----------------------------------------
+# Fibonacci Series   
+#---------------------------------------
+
+echo "Enter number of terms : "
+read n
+
+a=0
+b=1
+for (( i=1;i<=n;i++ ))
+do
+        echo "$a"
+        c=$((a+b))
+        a=$b
+        b=$c
+done
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q11.sh
+Enter number of terms : 
+4
+0
+1
+1
+2
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+#!/bin/bash
+
+#----------------------------------------
+DA=$(echo "$sal * 0.4" | bc)
+
+HRA=$(echo " $sal * 0.2" | bc)
+
+
+Gross_sal=$(echo " $DA + $HRA + $sal" | bc)
+echo "Gross Salary $Gross_sal"
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q10.sh
+Enter Salary : 
+40000
+Gross Salary 64000.0
+samruddhi@samruddhi-Virtual
+
+--------------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#-----------------------------------------------
+#     Display Last modification time 
+#-----------------------------------------------
+
+
+echo -n "Enter File Name : "
+read fname
+
+if [ -f $fname ]
+then
+        echo "File Exists "
+        stat $fname
+else
+        echo "File not exist "
+fi
+
+
+
+amruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q12.sh
+Enter File Name : a.txt
+File Exists 
+  File: a.txt
+  Size: 10        	Blocks: 8          IO Block: 4096   regular file
+Device: 803h/2051d	Inode: 1204699     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/samruddhi)   Gid: ( 1000/samruddhi)
+Access: 2026-03-26 06:19:48.275626802 -0400
+Modify: 2026-03-26 06:19:40.787606256 -0400
+Change: 2026-03-26 06:19:40.787606256 -0400
+ Birth: 2026-03-26 06:11:56.325004231 -0400
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+-------------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#----------------------------------------
+#   Only hiden file of current directory 
+#---------------------------------------
+
+echo  "Display Hidden files "
+ls -d .*
+
+echo  "using -a"
+ls -a
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q13.sh
+Display Hidden files 
+.  ..  .Q2.sh.swp  .temp.txt
+using -a
+ .      Assignment08.sh   Q10.sh   Q13.sh   .Q2.sh.swp	 Q6.sh	 Q9.sh	     'Untitled Document 1'
+ ..     a.txt		  Q11.sh   Q1.sh    Q3.sh	 Q7.sh	 script4.sh
+ 0.sh   Q02.sh		  Q12.sh   Q2.sh    Q5.sh	 Q8.sh	 .temp.txt
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+---------------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#-----------------------------------------------------------
+#   Display Only executable file of current directory  
+#----------------------------------------------------------
+
+
+echo "Executable file of current directory "
+ls -l | grep '^-..x'
+
+
+
+echo "                                                          "
+
+echo "                                                          "
+
+echo "Using find "
+find . -type f -executable
+
+
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q14.sh
+Executable file of current directory 
+-rwxrwxr-x 1 samruddhi samruddhi  753 Mar 26 05:39 Q02.sh
+-rwxrwxr-x 1 samruddhi samruddhi  294 Mar 27 22:30 Q10.sh
+-rwxrwxr-x 1 samruddhi samruddhi  102 Mar 27 22:32 Q11.sh
+-rwxrwxr-x 1 samruddhi samruddhi  282 Mar 28 00:46 Q12.sh
+-rwxrwxr-x 1 samruddhi samruddhi  204 Mar 28 00:54 Q13.sh
+-rwxrwxr-x 1 samruddhi samruddhi  442 Mar 28 01:03 Q14.sh
+-rwxrwxr-x 1 samruddhi samruddhi  193 Mar 26 05:07 Q1.sh
+-rwxrwxr-x 1 samruddhi samruddhi  669 Mar 26 05:36 Q2.sh
+-rwxrwxr-x 1 samruddhi samruddhi  499 Mar 26 07:22 Q3.sh
+-rwxrwxr-x 1 samruddhi samruddhi  498 Mar 26 07:37 Q5.sh
+-rwxrwxr-x 1 samruddhi samruddhi  319 Mar 26 07:52 Q6.sh
+-rwxrwxr-x 1 samruddhi samruddhi  296 Mar 26 08:01 Q7.sh
+-rwxrwxr-x 1 samruddhi samruddhi  205 Mar 26 08:04 Q8.sh
+-rwxrwxr-x 1 samruddhi samruddhi  263 Mar 26 08:29 Q9.sh
+                                                          
+                                                          
+Using find 
+./Q1.sh
+./Q7.sh
+./Q3.sh
+./Q12.sh
+./Q6.sh
+./Q8.sh
+./Q10.sh
+./Q13.sh
+./Q5.sh
+./Q11.sh
+./Q14.sh
+./Q02.sh
+./Q9.sh
+./Q2.sh
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+#!/bin/bash
+
+#--------------------------------------------------------------------
+#    Accept 2 files and append the content in reverse case 
+#-------------------------------------------------------------------
+
+echo -n "Enter first file name : "
+read f1
+
+echo -n "Enter Second file name : "
+read f2
+
+
+
+rev "$f1" | tr 'a-zA-Z' 'A-Za-z'>> "$f2"
+
+cat "$f1" "$f2"
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q15.sh
+Enter first file name : a.txt
+Enter Second file name : c.txt
+Clear file then append 
+Samruddhi
+ DNEPPA NEHT ELIF RAELc
+IHDDURMAs
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim Q15.sh
+
+
+-------------------------------------------------------------------------------------
+#!/bin/bash
+
+#----------------------------------------------------------
+#   User Login  - message display in home directory 
+#---------------------------------------------------------
+
+
+echo "Welcome , $USER "
+echo "Your home directory contents  :  "
+ls ~
+~                                                                                                        
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q16.sh
+Welcome , samruddhi 
+Your home directory contents  :  
+Assignment_07  Documents  file	     input.txt	numbers.txt  Public  Question2.sh  Templates  txt
+data.txt       Downloads  file.txt   lserr.txt	output.txt   Q1.sh   Samruddhi	   test.tet   Videos
+Desktop        error.txt  grade.txt  Music	Pictures     Q2.sh   snap	   test.text
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07
+
+
+
+
+
+echo "Welcome $USER "
+echo "YOU home directory contents are : "
+ls -l
+
+
+
+"~/.bashrc" 132L, 3853B                                                                129,5         Bot
+
+
+
+
+
+
+
+
+.bashrc file
+---------------
+f ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+echo "Welcome $USER "
+echo "YOU home directory contents are : "
+ls -l
+
+
+
+"~/.bashrc" 132L, 3853B                                                                129,5         Bot
+
+
+
+
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ vim ~/.bashrc
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ source ~/.bashrc
+Welcome samruddhi 
+YOU home directory contents are : 
+total 92
+-rw-rw-r-- 1 samruddhi samruddhi  102 Mar 26 04:56  0.sh
+-rw-rw-r-- 1 samruddhi samruddhi 4231 Mar 28 01:04  Assignment08.sh
+-rw-rw-r-- 1 samruddhi samruddhi   34 Mar 28 01:27  a.txt
+-rw-rw-r-- 1 samruddhi samruddhi   34 Mar 28 01:29  b.txt
+-rw-rw-r-- 1 samruddhi samruddhi   34 Mar 28 01:30  c.txt
+-rw-rw-r-- 1 samruddhi samruddhi    0 Mar 28 01:30 'gfhghjkl;'
+-rwxrwxr-x 1 samruddhi samruddhi  753 Mar 26 05:39  Q02.sh
+-rwxrwxr-x 1 samruddhi samruddhi  294 Mar 27 22:30  Q10.sh
+-rwxrwxr-x 1 samruddhi samruddhi  102 Mar 27 22:32  Q11.sh
+-rwxrwxr-x 1 samruddhi samruddhi  282 Mar 28 00:46  Q12.sh
+-rwxrwxr-x 1 samruddhi samruddhi  204 Mar 28 00:54  Q13.sh
+-rwxrwxr-x 1 samruddhi samruddhi  442 Mar 28 01:04  Q14.sh
+-rwxrwxr-x 1 samruddhi samruddhi  362 Mar 28 01:32  Q15.sh
+-rwxrwxr-x 1 samruddhi samruddhi  257 Mar 28 01:42  Q16.sh
+-rwxrwxr-x 1 samruddhi samruddhi  193 Mar 26 05:07  Q1.sh
+-rwxrwxr-x 1 samruddhi samruddhi  669 Mar 26 05:36  Q2.sh
+-rwxrwxr-x 1 samruddhi samruddhi  499 Mar 26 07:22  Q3.sh
+-rwxrwxr-x 1 samruddhi samruddhi  498 Mar 26 07:37  Q5.sh
+-rwxrwxr-x 1 samruddhi samruddhi  319 Mar 26 07:52  Q6.sh
+-rwxrwxr-x 1 samruddhi samruddhi  296 Mar 26 08:01  Q7.sh
+-rwxrwxr-x 1 samruddhi samruddhi  205 Mar 26 08:04  Q8.sh
+-rwxrwxr-x 1 samruddhi samruddhi  263 Mar 26 08:29  Q9.sh
+-rw-rw-r-- 1 samruddhi samruddhi    0 Mar 26 05:02  script4.sh
+-rw-rw-r-- 1 samruddhi samruddhi    0 Mar 28 01:15  temp
+-rw-rw-r-- 1 samruddhi samruddhi 1229 Mar 26 05:06 'Untitled Document 1'
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ 
+
+--------------------------------------------------------------------------------
+
+#!/bin/bash
+
+#----------------------------------------
+#  *
+#  **
+#  ***
+#  ****
+#  ****
+#---------------------------------------
+
+for (( i=0;i<=5;i++ ))
+do
+        for(( j=0;j<i;j++ ))
+        do
+                echo -n "*"
+        done
+        echo " "
+done
+~   
+
+
+samruddhi@samruddhi-VirtualBox:~/Samruddhi/Assignment/Assignment07$ ./Q17.sh
+ 
+* 
+** 
+*** 
+**** 
+***** 
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
